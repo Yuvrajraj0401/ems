@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Product, User } from '../types';
-import { editProductImage } from '../services/geminiService';
 
 interface VendorItemsProps {
   currentUser: User;
@@ -42,24 +41,7 @@ const VendorItems: React.FC<VendorItemsProps> = ({ currentUser, products, setPro
     }
   };
 
-  const handleAiEdit = async () => {
-    if (!image || !aiPrompt) return;
-    setIsAiLoading(true);
-    setAiError('');
-    try {
-      const editedBase64 = await editProductImage(image, aiPrompt);
-      if (editedBase64) {
-        setImage(editedBase64);
-        setAiPrompt('');
-      } else {
-        setAiError('Failed to process image. Try a different prompt.');
-      }
-    } catch (err) {
-      setAiError('Error communicating with AI. Ensure API key is valid.');
-    } finally {
-      setIsAiLoading(false);
-    }
-  };
+ 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
