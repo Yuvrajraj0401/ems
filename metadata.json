@@ -1,0 +1,7 @@
+{
+  "name": " Event Management System",
+  "description": "A comprehensive event management platform featuring specialized dashboards for Admins, Vendors, and Users, with AI-powered image editing for product listings.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
