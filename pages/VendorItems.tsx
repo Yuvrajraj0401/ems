@@ -182,47 +182,6 @@ const VendorItems: React.FC<VendorItemsProps> = ({ currentUser, products, setPro
               {mode === 'add' ? 'Save Product' : 'Update Product'}
             </button>
           </form>
-
-          <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200">
-            <h4 className="font-bold text-blue-800 mb-4 flex items-center gap-2">
-              <i className="fas fa-magic"></i> AI Photo Studio
-            </h4>
-            <p className="text-sm text-blue-600 mb-6 italic">Upload an image, then use Gemini to enhance or edit your product photo instantly.</p>
-            
-            <div className="mb-6 aspect-video bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden border-2 border-white shadow-inner">
-              {image ? (
-                <img src={image} alt="Preview" className="max-h-full max-w-full object-contain" />
-              ) : (
-                <span className="text-gray-400">Image Preview</span>
-              )}
-            </div>
-
-            <div className="space-y-4">
-              <textarea
-                value={aiPrompt}
-                onChange={(e) => setAiPrompt(e.target.value)}
-                placeholder="Ex: 'Add a retro filter', 'Make it look professional', 'Remove the background'..."
-                className="w-full border p-3 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none h-24"
-                disabled={!image || isAiLoading}
-              />
-              <button 
-                onClick={handleAiEdit}
-                disabled={!image || !aiPrompt || isAiLoading}
-                className={`w-full py-2 px-4 rounded-lg font-bold flex items-center justify-center gap-2 transition ${!image || !aiPrompt || isAiLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'}`}
-              >
-                {isAiLoading ? (
-                  <>
-                    <i className="fas fa-spinner fa-spin"></i> Processing...
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-wand-sparkles"></i> AI Smart Edit
-                  </>
-                )}
-              </button>
-              {aiError && <p className="text-red-500 text-xs text-center">{aiError}</p>}
-            </div>
-          </div>
         </div>
       )}
     </div>
