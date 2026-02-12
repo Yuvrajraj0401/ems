@@ -19,10 +19,6 @@ const VendorItems: React.FC<VendorItemsProps> = ({ currentUser, products, setPro
   const [image, setImage] = useState('');
   const [editId, setEditId] = useState<string | null>(null);
   
-  // AI Edit State
-  const [aiPrompt, setAiPrompt] = useState('');
-  const [isAiLoading, setIsAiLoading] = useState(false);
-  const [aiError, setAiError] = useState('');
 
   useEffect(() => {
     const m = searchParams.get('mode');
